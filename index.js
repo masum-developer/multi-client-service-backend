@@ -42,8 +42,10 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("receive_message",data)
   });
   });
-
-  server.listen(5000, () => {
+  app.use("/",(req,res)=>{
+    res.send("Welcome to the server home page");
+  })
+  server.listen(process.env.PORT || 5000, () => {
     console.log("SERVER IS RUNNING");
   });
 
